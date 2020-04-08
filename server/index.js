@@ -1,6 +1,8 @@
 const { Nuxt, Builder } = require('nuxt')
+const youtube = require('./youtube')
+
 const fastify = require('fastify')({
-  logger: true
+  logger: false
 })
 
 // Import and Set Nuxt.js options
@@ -22,6 +24,10 @@ async function start() {
     const builder = new Builder(nuxt)
     await builder.build()
   }
+
+  fastify.register(require('fastify-websocket'))
+
+  fastify.register(youtube, { prefix: '/api/youtube' })
 
   fastify.use(nuxt.render)
 
