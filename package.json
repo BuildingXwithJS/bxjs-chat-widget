@@ -15,9 +15,11 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "cross-env": "^5.2.0",
+    "dank-twitch-irc": "^3.0.7",
     "fastify": "^2.13.0",
     "fastify-websocket": "^1.1.2",
     "nuxt": "^2.0.0",
+    "twitch": "^4.0.9",
     "youtube-live-chat": "^1.0.3"
   },
   "devDependencies": {

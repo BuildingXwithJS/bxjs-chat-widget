@@ -1,4 +1,5 @@
 const youtubeClient = require('./clients/youtube')
+const twitchClient = require('./clients/twitch')
 
 const connectionsPool = []
 
@@ -14,6 +15,7 @@ const onMessage = (data) => {
 module.exports = async (fastify, opts, done) => {
   // bootstrap clients
   youtubeClient(onMessage)
+  twitchClient(onMessage)
 
   // messages ws endpoint
   fastify.get('/messages', { websocket: true }, (connection, req) => {

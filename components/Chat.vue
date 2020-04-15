@@ -23,6 +23,21 @@
                 d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"
               />
             </svg>
+            <svg
+              class="mr-2 text-indigo-700"
+              stroke="currentColor"
+              fill="currentColor"
+              stroke-width="0"
+              viewBox="0 0 448 512"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+              v-if="message.source == 'twitch'"
+            >
+              <path
+                d="M40.1 32L10 108.9v314.3h107V480h60.2l56.8-56.8h87l117-117V32H40.1zm357.8 254.1L331 353H224l-56.8 56.8V353H76.9V72.1h321v214zM331 149v116.9h-40.1V149H331zm-107 0v116.9h-40.1V149H224z"
+              ></path>
+            </svg>
             <a
               class="text-sm leading-tight text-gray-200 flex-1"
               v-bind:href="message.url"
@@ -60,10 +75,10 @@ export default {
       const data = JSON.parse(event.data)
       if (data.messages) {
         this.messages = sortByDate(data.messages)
+        return
       }
-      if (data.message) {
-        this.messages = sortByDate(this.messages.concat(data.message))
-      }
+
+      this.messages = sortByDate(this.messages.concat(data))
     }
   },
   beforeDestroy() {
