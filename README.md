@@ -1,6 +1,6 @@
 # bxjs-chat-widget
 
-> Widget for Youtube and Twitch chats
+> Widget for Youtube, Twitch and Mixer chats
 
 ## Build Setup
 
