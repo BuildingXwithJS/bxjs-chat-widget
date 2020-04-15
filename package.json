@@ -13,6 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@mixer/client-node": "^3.5.0",
     "@nuxtjs/axios": "^5.3.6",
     "cross-env": "^5.2.0",
     "dank-twitch-irc": "^3.0.7",
@@ -20,6 +21,7 @@
     "fastify-websocket": "^1.1.2",
     "nuxt": "^2.0.0",
     "twitch": "^4.0.9",
+    "ws": "^7.2.3",
     "youtube-live-chat": "^1.0.3"
   },
   "devDependencies": {
