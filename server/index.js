@@ -1,5 +1,5 @@
 const { Nuxt, Builder } = require('nuxt')
-const youtube = require('./youtube')
+const chat = require('./chat')
 
 const fastify = require('fastify')({
   logger: false
@@ -27,7 +27,7 @@ async function start() {
 
   fastify.register(require('fastify-websocket'))
 
-  fastify.register(youtube, { prefix: '/api/youtube' })
+  fastify.register(chat, { prefix: '/api' })
 
   fastify.use(nuxt.render)
 
