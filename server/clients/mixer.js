@@ -1,10 +1,11 @@
 const Mixer = require('@mixer/client-node')
 const ws = require('ws')
+const { mixer } = require('../../config')
 
 // Instantiate a new Mixer Client
 const client = new Mixer.Client(new Mixer.DefaultRequestRunner())
 
-const channelId = '7429614' // yamalight - 7429614
+const { channelId } = mixer
 
 const getConnectionInformation = (channelId) =>
   new Mixer.ChatService(client)

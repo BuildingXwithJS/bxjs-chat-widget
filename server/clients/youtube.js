@@ -1,9 +1,8 @@
 const YouTube = require('../api/youtube-live-chat')
-
-const channelId = 'UCPkKhlR0sXtN5hlB228xuTg'
+const { youtube } = require('../../config.js')
 
 module.exports = (onMessage) => {
-  const yt = new YouTube(channelId, process.env.YOUTUBE_KEY)
+  const yt = new YouTube(youtube.channelId, youtube.apiKey)
 
   yt.on('ready', () => {
     console.log('[youtube] ready!')
